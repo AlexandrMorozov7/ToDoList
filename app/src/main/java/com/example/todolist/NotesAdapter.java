@@ -1,5 +1,6 @@
 package com.example.todolist;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,16 +34,28 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         holder.textViewTitle.setText(note.getTitle());
         holder.textViewDescription.setText(note.getDescription());
         holder.textViewDayOfWeek.setText(note.getDayOfWeek());
-        holder.textViewPriority.setText(String.format("%s", note.getPriority()));
-
+        int colorId = 0;
+        int priority = note.getPriority();
+        switch(priority){
+            case 1:
+                colorId = holder.itemView.getResources().getColor(android.R.color.holo_red_light);
+                break;
+            case 2:
+                colorId = holder.itemView.getResources().getColor(android.R.color.holo_orange_light);
+                break;
+            case 3:
+                colorId = holder.itemView.getResources().getColor(android.R.color.holo_green_light);
+                break;
+        }
+        holder.textViewTitle.setBackgroundColor(colorId);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return notes.size();
     }
 
-    class NotesViewHolder extends RecyclerView.ViewHolder{
+    static class NotesViewHolder extends RecyclerView.ViewHolder{
 
         private TextView textViewTitle;
         private TextView textViewDescription;
@@ -53,7 +66,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewDescription = itemView.findViewById(R.id.textViewDescription);
             textViewDayOfWeek = itemView.findViewById(R.id.textViewDayOfWeek);
-            textViewPriority = itemView.findViewById(R.id.textViewPriority);
         }
     }
 }

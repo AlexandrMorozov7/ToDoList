@@ -40,6 +40,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-common:2.6.1")
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation(libs.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ToDoList</string>
+    <string name="label_day_of_week">День недели</string>
 </resources>
