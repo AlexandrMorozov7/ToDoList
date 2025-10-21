@@ -1,6 +1,8 @@
 package com.example.todolist;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private RecyclerView RecyclerViewNotes;
-    private ArrayList<Note> notes = new ArrayList<>();
+    public static final ArrayList<Note> notes = new ArrayList<>();
 
 
     @Override
@@ -41,5 +43,10 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewNotes.setAdapter(adapter);
 
         
+    }
+
+    public void onClickAddNote(View view) {
+        Intent intent = new Intent(this, AddNewActivity.class);
+            startActivity(intent);
     }
 }

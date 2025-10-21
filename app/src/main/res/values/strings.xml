@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">ToDoList</string>
     <string name="label_day_of_week">День недели</string>
+    <string name="enter_note_name">Название заметки</string>
+    <string name="enter_note_description">Описание вашей заметки</string>
+    <string name="priority_1">1</string>
+    <string name="priority_2">2</string>
+    <string name="priority_3">3</string>
+    <string name="button_add_note">Добавить заметку</string>
+    <string name="floatingbutton_add_new_note">Кнопка добавления новой заметки</string>
+
+    <string-array name="daysOfWeek">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </string-array>
 </resources>
