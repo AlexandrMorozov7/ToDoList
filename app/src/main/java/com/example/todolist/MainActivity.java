@@ -31,12 +31,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        notes.add(new Note("Backetball", "2,", "3", 2));
-        notes.add(new Note("1", "2,", "3", 2));
-        notes.add(new Note("1", "2,", "3", 3));
-        notes.add(new Note("1", "2,", "3", 2));
-        notes.add(new Note("1", "2,", "3", 1));
-        notes.add(new Note("1", "2,", "3", 2));
+        if (notes.isEmpty()) {
+            notes.add(new Note("Backetball", "2,", "3", 2));
+            notes.add(new Note("1", "2,", "3", 2));
+            notes.add(new Note("1", "2,", "3", 3));
+            notes.add(new Note("1", "2,", "3", 2));
+            notes.add(new Note("1", "2,", "3", 1));
+            notes.add(new Note("1", "2,", "3", 2));
+        }
         RecyclerViewNotes = findViewById(R.id.RecyclerViewNotes);
         NotesAdapter adapter = new NotesAdapter(notes);
         RecyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
