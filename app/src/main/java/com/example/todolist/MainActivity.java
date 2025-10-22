@@ -1,8 +1,11 @@
 package com.example.todolist;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
         NotesAdapter adapter = new NotesAdapter(notes);
         RecyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
         RecyclerViewNotes.setAdapter(adapter);
-
+        adapter.setOnNoteClickListener(new NotesAdapter.onNoteClickListener() {
+            @Override
+            public void onNoteClick(int position) {
+                Toast.makeText(getApplicationContext(), "Номер поз: " + position, LENGTH_SHORT).show();
+            }
+        });
         
     }
 

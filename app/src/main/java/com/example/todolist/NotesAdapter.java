@@ -13,10 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder>{
-
-
     private ArrayList<Note> notes;
+     private static onNoteClickListener onNoteClickListener;
 
+    public void setOnNoteClickListener(onNoteClickListener onNoteClickListener) {
+        this.onNoteClickListener = onNoteClickListener;
+    }
+
+    interface onNoteClickListener   {
+        void onNoteClick(int position);
+    }
     public NotesAdapter(ArrayList<Note> notes) {
         this.notes = notes;
     }
@@ -66,6 +72,15 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewDescription = itemView.findViewById(R.id.textViewDescription);
             textViewDayOfWeek = itemView.findViewById(R.id.textViewDayOfWeek);
+            itemView.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    if  (onNoteClickListener != null){
+                        onNoteClickListener.onNoteClick(getAdapterPosition());
+                    }
+                }
+            });
         }
     }
 }
