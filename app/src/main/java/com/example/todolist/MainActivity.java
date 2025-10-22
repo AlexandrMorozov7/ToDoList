@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnNoteClickListener(new NotesAdapter.onNoteClickListener() {
             @Override
             public void onNoteClick(int position) {
-                Toast.makeText(getApplicationContext(), "Номер поз: " + position, LENGTH_SHORT).show();
+                notes.remove(position);
+                adapter.notifyDataSetChanged();
             }
         });
         
