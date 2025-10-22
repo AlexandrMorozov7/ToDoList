@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView RecyclerViewNotes;
     public static final ArrayList<Note> notes = new ArrayList<>();
-
+    private NotesAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +49,18 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnNoteClickListener(new NotesAdapter.onNoteClickListener() {
             @Override
             public void onNoteClick(int position) {
+
+            }
+
+            @Override
+            public void onLongClick(int position) {
                 notes.remove(position);
                 adapter.notifyDataSetChanged();
             }
         });
-        
-    }
 
+
+    }
     public void onClickAddNote(View view) {
         Intent intent = new Intent(this, AddNewActivity.class);
             startActivity(intent);
